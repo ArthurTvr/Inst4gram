@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <img class="navbar-img" src="./assets/logo/new-big.png" alt="">
+
+        <img class="navbar-img-um" 
+            src="https://i.pinimg.com/236x/31/ec/2c/31ec2ce212492e600b8de27f38846ed7.jpg" alt="">
+    </nav>
+    <section class="section-profile-img">
+        <a href="#" class="btn" onclick="document.getElementById('file-input').click(); return false;">
+            <img id="profile-img" src="https://i.pinimg.com/236x/31/ec/2c/31ec2ce212492e600b8de27f38846ed7.jpg" alt="Imagem de perfil" width="180px" height="180px">
+        </a>
+    
+        <!-- Input para selecionar o arquivo -->
+        <input type="file" id="file-input" accept="image/*" onchange="changeImage(this)">
+    
+    </section>
+    <section class="section-profile">
+        <h1 class="profile-arroba">@fulano</h1>
+        <p class="profile-name">Fulano</p>
+        <p class="apelido">apelido</p>
+    </section>
+    <div class="infos-container">
+
+        <div class="infos-profile">
+            <section>
+                <p>225k</p>
+                <p>seguidores</p>
+        </div>
+        <div class="infos-profile">
+            <section>
+                <p>30</p>
+                <p>trend</p>
+        </div>
+        <div class="infos-profile">
+            <section>
+                <p>120</p>
+                <p>moments</p>
+        </div>
+    </div>
+    </section>
+    <div class="cardl">
+        <div class="card1" id="card"> <img
+                src="https://media.gazetadopovo.com.br/viver-bem/2017/02/selfie-perfeita-5518fdd0.jpg"
+                alt="Imagem do card"> </div>
+        <div class="card2" id="card"> <img
+                src="https://media.gazetadopovo.com.br/viver-bem/2017/02/selfie-perfeita-5518fdd0.jpg"
+                alt="Imagem do card"> </div>
+        <div class="card3" id="card"> <img
+                src="https://media.gazetadopovo.com.br/viver-bem/2017/02/selfie-perfeita-5518fdd0.jpg"
+                alt="Imagem do card"> </div>
+        <div class="card4" id="card"> <img
+                src="https://media.gazetadopovo.com.br/viver-bem/2017/02/selfie-perfeita-5518fdd0.jpg"
+                alt="Imagem do card"> </div>
+        <div class="card5" id="card"> <img
+                src="https://media.gazetadopovo.com.br/viver-bem/2017/02/selfie-perfeita-5518fdd0.jpg"
+                alt="Imagem do card"> </div>
+        <div class="card6" id="card"> <img
+                src="https://media.gazetadopovo.com.br/viver-bem/2017/02/selfie-perfeita-5518fdd0.jpg"
+                alt="Imagem do card"> </div>
+
+    </div>
+
+
+    <script>
+        // Função para trocar a imagem da tag <a> e da navbar
+        function changeImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    // Troca a imagem do perfil
+                    var profileImg = document.getElementById('profile-img');
+                    profileImg.src = e.target.result;
+
+                    // Troca a imagem da navbar
+                    var navbarImgUm = document.querySelector('.navbar-img-um');
+                    navbarImgUm.src = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]); // Lê o arquivo como uma URL
+            }
+        }
+    </script>
+</body>
+
+</html>
